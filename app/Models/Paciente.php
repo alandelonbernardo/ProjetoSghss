@@ -15,4 +15,8 @@ class Paciente extends Model
     ];
 
     use HasFactory;
+
+    public function consultas() {
+        return $this-hasMany(Consulta::class);
+    }
 }

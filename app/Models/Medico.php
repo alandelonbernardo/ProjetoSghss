@@ -14,4 +14,8 @@ class Medico extends Model
     ];
 
     use HasFactory;
+
+    public function consultas() {
+        return $this-hasMany(Consulta::class);
+    }
 }

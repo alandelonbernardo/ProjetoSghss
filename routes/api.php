@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\ConsultaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,14 @@ Route::group(['prefix' => 'medico'], function() {
     Route::get('/index', [MedicoCOntroller::class, 'index']);
     Route::post('/update/{id}', [MedicoController::class, 'update']);
     Route::delete('/delete/{id}', [MedicoController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'consulta'], function() {
+    Route::post('/create', [ConsultaController::class, 'create']);
+    Route::get('/show/{id}', [ConsultaController::class, 'show']);
+    Route::get('/index', [ConsultaCOntroller::class, 'index']);
+    Route::post('/update/{id}', [ConsultaController::class, 'update']);
+    Route::delete('/delete/{id}', [ConsultaController::class, 'delete']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
